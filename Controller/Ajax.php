@@ -3,10 +3,11 @@
 namespace Crimson\ProductRange\Controller;
 
 use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\Action\HttpGetActionInterface as HttpGetActionInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\View\Result\PageFactory;
 
-class Ajax extends \Magento\Framework\App\Action\Action
+class Ajax extends \Magento\Framework\App\Action\Action implements HttpGetActionInterface
 {
     /**
      * @var PageFactory
