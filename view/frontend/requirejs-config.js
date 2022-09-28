@@ -2,7 +2,7 @@ var config = {
     config: {
         mixins: {
             'mage/validation': {
-                'Crimson_CustomerProduct/js/validation-mixin': true
+                'Crimson_ProductRange/js/validation-mixin': true
             }
         }
     }
