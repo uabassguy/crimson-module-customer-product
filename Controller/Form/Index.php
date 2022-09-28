@@ -13,6 +13,8 @@ class Index extends \Magento\Framework\App\Action\Action implements HttpGetActio
     protected $resultPageFactory;
 
     /**
+     * Index constructor.
+     * @param Context $context
      * @param PageFactory $resultPageFactory
      */
     public function __construct(

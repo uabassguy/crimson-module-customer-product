@@ -2,36 +2,43 @@
 
 namespace Crimson\ProductRange\Controller;
 
+use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\View\Result\PageFactory;
 
 class Ajax extends \Magento\Framework\App\Action\Action
 {
     /**
-     * @var \Magento\Framework\App\Action\Context
+     * @var PageFactory
      */
-    private $context;
+    protected $resultPageFactory;
+
     /**
-     * @param \Magento\Framework\App\Action\Context $context
+     * Index constructor.
+     * @param Context $context
+     * @param PageFactory $resultPageFactory
      */
     public function __construct(
-        \Magento\Framework\App\Action\Context $context
+        Context $context,
+        PageFactory $resultPageFactory
     ) {
+        $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);
-        $this->context           = $context;
     }
 
-    /**
-     * @return Json
-     */
-    public function execute()
-    {
-        $params = $this->context->getRequest()->getParams();
+    public function execute() {
+        /** @var \Magento\Framework\View\Result\Page $resultPage */
+        $resultPage = $this->resultPageFactory->create();
 
-        $this->validate($params);
+        //$params = $this->context->getRequest()->getParams();
+        //$this->validate($params);
 
         $resultJson = $this->resultFactory->create(ResultFactory::TYPE_JSON);
         $resultJson->setData(["message" => ("Test"), "suceess" => true]);
-        return $resultJson;
+
+
+        //return $resultJson;
+        return $resultPage;
     }
 
     private function validate(array $params)
