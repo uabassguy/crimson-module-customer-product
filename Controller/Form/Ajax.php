@@ -74,6 +74,7 @@ class Ajax extends \Magento\Framework\App\Action\Action implements HttpGetAction
                 'template' => 'Crimson_ProductRange::product_table.phtml'
             ]
         );
+        $block->setTemplate('Crimson_ProductRange::product_table.phtml');
         return $block->toHtml();
     }
 }
