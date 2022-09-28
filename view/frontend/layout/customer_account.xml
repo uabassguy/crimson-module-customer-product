@@ -8,5 +8,13 @@
                 </arguments>
             </block>
         </referenceBlock>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Product Range</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="product_range" template="Crimson_ProductRange::product_range.phtml" />
+        </referenceContainer>
     </body>
 </page>
