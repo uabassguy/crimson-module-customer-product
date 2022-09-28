@@ -21,8 +21,8 @@ class Index implements HttpGetActionInterface
     }
 
     public function execute() {
-        die('ok');
-        //$this->_view->loadLayout();
-        //$this->_view->renderLayout();
+        $page = $this->resultPageFactory->create();
+
+        return $page;
     }
 }
