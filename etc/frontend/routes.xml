@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="standard">
         <route id="customer">
-            <module name="Crimson_CustomerRange" after="Magento_Customer"/>
+            <module name="Crimson_ProductRange" after="Magento_Customer"/>
         </route>
     </router>
 </config>
