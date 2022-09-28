@@ -60,7 +60,6 @@ class Ajax extends \Magento\Framework\App\Action\Action implements HttpGetAction
             return false;
         }
         if ($params['sort'] != 'asc' && $params['sort'] != 'desc') {
-            die('x');
             return false;
         }
         return true;
