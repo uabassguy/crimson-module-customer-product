@@ -1,5 +1,5 @@
 <?php
-namespace Crimson\ProductRange\Controller\Customer\Account;
+namespace Crimson\ProductRange\Controller\Account;
 
 use Magento\Framework\App\Action\HttpGetActionInterface as HttpGetActionInterface;
 use Magento\Framework\App\Action\Context;
