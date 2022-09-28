@@ -1,5 +1,5 @@
 {
-  "name": "crimson/module-customer-product",
+  "name": "uabassguy/module-customer-product",
   "description": "Magento Exercise – Products in Range",
   "require": {
     "php": "~8.*"
