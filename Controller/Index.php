@@ -5,7 +5,7 @@ use Magento\Framework\App\Action\HttpGetActionInterface as HttpGetActionInterfac
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-class IndexController extends \Magento\Customer\Controller\AbstractAccount implements HttpGetActionInterface
+class Index extends \Magento\Customer\Controller\AbstractAccount implements HttpGetActionInterface
 {
     /**
      * @var PageFactory

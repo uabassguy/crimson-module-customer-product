@@ -1,10 +1,10 @@
 <?php
 
-namespace Crimson\ProductRange\Controller\Customer\Account\ProductRange;
+namespace Crimson\ProductRange\Controller;
 
 use Magento\Framework\Controller\ResultFactory;
 
-class IndexController extends \Magento\Framework\App\Action\Action
+class Ajax extends \Magento\Framework\App\Action\Action
 {
     /**
      * @var \Magento\Framework\App\Action\Context
