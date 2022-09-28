@@ -1,11 +1,11 @@
 <?php
-namespace Crimson\ProductRange\Controller\Account;
+namespace Crimson\ProductRange\Controller;
 
 use Magento\Framework\App\Action\HttpGetActionInterface as HttpGetActionInterface;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-class ProductRangeController extends \Magento\Customer\Controller\AbstractAccount implements HttpGetActionInterface
+class IndexController extends \Magento\Customer\Controller\AbstractAccount implements HttpGetActionInterface
 {
     /**
      * @var PageFactory
