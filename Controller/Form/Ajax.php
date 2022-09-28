@@ -33,18 +33,36 @@ class Ajax extends \Magento\Framework\App\Action\Action implements HttpGetAction
         /** @var \Magento\Framework\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
 
-        //$params = $this->context->getRequest()->getParams();
-        //$this->validate($params);
+        $params = $this->getRequest()->getParams();
+        $valid = $this->validate($params);
 
         $resultJson = $this->resultFactory->create(ResultFactory::TYPE_JSON);
-        $resultJson->setData(["message" => ("Test"), "suceess" => true]);
-
+        if (!$valid) {
+            $resultJson->setData([
+                "suceess" => false
+            ]);
+        } else {
+            $resultJson->setData([
+                "suceess" => true,
+                "html" => $resultPage->getLayout()->getBlock('product_table')->toHtml()
+            ]);
+        }
 
         return $resultJson;
     }
 
-    private function validate(array $params)
+    private function validate(array $params): bool
     {
-
+        if (!isset($params['low']) || !isset($params['high']) || !isset($params['sort'])) {
+            return false;
+        }
+        if (!is_numeric($params['low']) || !is_numeric($params['high'])) {
+            return false;
+        }
+        if ($params['sort'] != 'asc' && $params['sort'] != 'desc') {
+            die('x');
+            return false;
+        }
+        return true;
     }
 }

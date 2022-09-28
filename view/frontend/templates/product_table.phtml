@@ -1,0 +1,29 @@
+<?php
+/** @var \Crimson\ProductRange\Block\ProductData $block */
+$collection = $block->getCollection();
+?>
+
+<table>
+    <tr>
+        <td>Thumbnail</td>
+        <td>SKU</td>
+        <td>Name</td>
+        <td>QTY</td>
+        <td>Price</td>
+        <td>Link</td>
+    </tr>
+
+
+<?php
+    foreach ($collection as $item):
+?>
+    <tr>
+        <td><img src="<?= $item->getThumbnail() ?>"/></td>
+        <td><?= $item->getSku() ?></td>
+        <td><?= $item->getName() ?></td>
+        <td><?= $item->getQty() ?></td>
+        <td><?= $item->getPrice() ?></td>
+        <td><a href="<?= $item->getUrl() ?>" target="_blank">Page</a></td>
+    </tr>
+<?php endforeach; ?>
+</table>
