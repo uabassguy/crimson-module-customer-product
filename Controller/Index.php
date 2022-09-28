@@ -1,6 +1,6 @@
 <?php
 namespace Crimson\ProductRange\Controller;
-
+die();
 use Magento\Framework\App\Action\HttpGetActionInterface as HttpGetActionInterface;
 use Magento\Sales\Controller\OrderInterface;
 use Magento\Framework\App\Action\Context;

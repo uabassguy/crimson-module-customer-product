@@ -3,8 +3,8 @@
         <referenceBlock name="customer_account_navigation">
             <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-custom">
                 <arguments>
-                    <argument name="path" xsi:type="string">customer/account/productrange/index</argument>
-                    <argument name="label" xsi:type="string">Product Range s</argument>
+                    <argument name="path" xsi:type="string">productrange/index</argument>
+                    <argument name="label" xsi:type="string">Product Range</argument>
                 </arguments>
             </block>
         </referenceBlock>
