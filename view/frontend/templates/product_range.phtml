@@ -27,6 +27,7 @@
             </div>
         </div>
     </fieldset>
+    <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>"/>
     <div class="primary">
         <button type="submit"
                 class="action submit primary"
@@ -59,4 +60,15 @@
 
     });
 
+</script>
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'mage/mage',
+        'mage/validation'
+    ], function($){
+        var contact_form = jQuery('#my-form');
+        contact_form.mage('validation', {});
+    });
 </script>
