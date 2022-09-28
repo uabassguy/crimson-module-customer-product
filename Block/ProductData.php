@@ -35,6 +35,7 @@ class ProductData extends AbstractBlock
     public function getCollection(): Collection
     {
         $params = $this->getParams();
+        print_r($params);die();
         return $this->collectionFactory->create()
             ->addAttributeToSelect('*')
             ->addFieldToFilter( 'price' , array('from' => $params['low'], 'to' => $params['high']) )
