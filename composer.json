@@ -1,0 +1,20 @@
+{
+  "name": "crimson/module-customer-product",
+  "description": "Magento Exercise – Products in Range",
+  "require": {
+    "php": "*"
+  },
+  "suggest": {
+
+  },
+  "type": "magento2-module",
+  "version": "0.0.1",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Crimson\\CustomerProduct\\": ""
+    }
+  }
+}

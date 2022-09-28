@@ -1,0 +1,30 @@
+<?php
+// Add Some Code Here for design
+?>
+<span> Product Range Search </span>
+
+<form id="my-form">
+    <fieldset class="fieldset">
+        <div class="field low required">
+            <label class="label" for="low"><span><?= $block->escapeHtml(__('Low')) ?></span></label>
+            <div class="control">
+                <input name="low" id="low" title="Low" value="" class="input-text" type="text" data-validate='{"required":true, "validate-zero-or-greater":true }'/>
+            </div>
+        </div>
+        <div class="field low required">
+            <label class="label" for="high"><span><?= $block->escapeHtml(__('High')) ?></span></label>
+            <div class="control">
+                <input name="high" id="high" title="High" value="" class="input-text" type="text" data-validate='{"required":true, "high-multiple-5x": true}'/>
+            </div>
+        </div>
+        <div class="field sort required">
+            <label for="sort" class="label"><span><?= $block->escapeHtml(__('Sort')) ?></span></label>
+            <div class="control">
+                <select id="sort" name="sort" title="<?= $block->escapeHtmlAttr(__('Sort')) ?>" class="select">
+                    <option selected="selected" value="asc"><?= $block->escapeHtml(__('Ascending')) ?></option>
+                    <option value="desc"><?= $block->escapeHtml(__('Descending')) ?></option>
+                </select>
+            </div>
+        </div>
+    </fieldset>
+</form>
