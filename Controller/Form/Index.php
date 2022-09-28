@@ -28,7 +28,6 @@ class Index extends \Magento\Framework\App\Action\Action implements HttpGetActio
     public function execute() {
         /** @var \Magento\Framework\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->getConfig()->getTitle()->set(__('Product Range Search'));
 
         return $resultPage;
     }

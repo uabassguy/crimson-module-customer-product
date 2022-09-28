@@ -1,11 +1,12 @@
 <?php
 
-namespace Crimson\ProductRange\Controller;
+namespace Crimson\ProductRange\Controller\Form;
 
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\Action\HttpGetActionInterface as HttpGetActionInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\Controller\ResultInterface;
 
 class Ajax extends \Magento\Framework\App\Action\Action implements HttpGetActionInterface
 {
@@ -27,7 +28,8 @@ class Ajax extends \Magento\Framework\App\Action\Action implements HttpGetAction
         parent::__construct($context);
     }
 
-    public function execute() {
+    public function execute(): ResultInterface
+    {
         /** @var \Magento\Framework\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
 
@@ -38,8 +40,7 @@ class Ajax extends \Magento\Framework\App\Action\Action implements HttpGetAction
         $resultJson->setData(["message" => ("Test"), "suceess" => true]);
 
 
-        //return $resultJson;
-        return $resultPage;
+        return $resultJson;
     }
 
     private function validate(array $params)
