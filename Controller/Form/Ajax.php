@@ -44,7 +44,7 @@ class Ajax extends \Magento\Framework\App\Action\Action implements HttpGetAction
         } else {
             $resultJson->setData([
                 "suceess" => true,
-                "html" => $resultPage->getLayout()->getBlock('product_table')->toHtml()
+                "html" => $this->getBlockHtml($resultPage)
             ]);
         }
 
@@ -63,5 +63,17 @@ class Ajax extends \Magento\Framework\App\Action\Action implements HttpGetAction
             return false;
         }
         return true;
+    }
+
+    private function getBlockHtml(\Magento\Framework\View\Result\Page $resultPage)
+    {
+        $block = $resultPage->getLayout()->createBlock(
+            'Crimson\ProductRange\Block\ProductData',
+            'product_table',
+            [
+                'template' => 'Crimson_ProductRange::product_table.phtml'
+            ]
+        );
+        return $block->toHtml();
     }
 }
