@@ -7,7 +7,7 @@
             </action>
         </referenceBlock>
         <referenceContainer name="content">
-            <block class="Magento\Framework\View\Element\Template" name="product_range" template="Crimson_CustomerProduct::product_range.phtml" />
+            <block class="Magento\Framework\View\Element\Template" name="product_range" template="Crimson_ProductRange::product_range.phtml" />
         </referenceContainer>
     </body>
 </page>
