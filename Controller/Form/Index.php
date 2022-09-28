@@ -3,8 +3,9 @@ namespace Crimson\ProductRange\Controller\Form;
 
 use Magento\Framework\App\Action\HttpGetActionInterface as HttpGetActionInterface;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\App\Action\Context;
 
-class Index implements HttpGetActionInterface
+class Index extends \Magento\Framework\App\Action\Action implements HttpGetActionInterface
 {
     /**
      * @var PageFactory
@@ -15,14 +16,22 @@ class Index implements HttpGetActionInterface
      * @param PageFactory $resultPageFactory
      */
     public function __construct(
+        Context $context,
         PageFactory $resultPageFactory
     ) {
         $this->resultPageFactory = $resultPageFactory;
+        parent::__construct($context);
     }
 
     public function execute() {
-        $page = $this->resultPageFactory->create();
+        /** @var \Magento\Framework\View\Result\Page $resultPage */
+        $resultPage = $this->resultPageFactory->create();
+        $resultPage->getConfig()->getTitle()->set(__('My Orders'));
 
-        return $page;
+        $block = $resultPage->getLayout()->getBlock('customer.account.link.back');
+        if ($block) {
+            $block->setRefererUrl($this->_redirect->getRefererUrl());
+        }
+        return $resultPage;
     }
 }
