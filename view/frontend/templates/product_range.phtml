@@ -38,20 +38,25 @@
 </form>
 
 <script>
-    jQuery(document).ready(function($) {
-        $("#my-form").submit(function(){
-            jQuery.ajax({
-                url: "/productrange/form/ajax",
-                type: "GET",
-                data: {
-                    low:low,
-                    high:high,
-                    sort:sort
-                },
-                success: function(response){
-                    console.log(response);
-                }
+    require(['jquery'],function($){
+
+        $(document).ready(function() {
+            $("#my-form").submit(function(){
+                jQuery.ajax({
+                    url: "/productrange/form/ajax",
+                    type: "GET",
+                    data: {
+                        low:low,
+                        high:high,
+                        sort:sort
+                    },
+                    success: function(response){
+                        console.log(response);
+                    }
+                });
             });
         });
+
     });
+
 </script>
