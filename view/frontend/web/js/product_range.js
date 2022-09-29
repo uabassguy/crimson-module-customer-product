@@ -1,4 +1,10 @@
-define(["jquery", "domReady!","product_range"], function($,dom,product_range){
+define([
+    "jquery",
+    "domReady!",
+    "product_range",
+    "mage/mage",
+    "mage/validation"
+], function($,dom,product_range){
 
     $(document).on('click', '#range-submit-btn', function(e){
         var ajxurl = $('#my-form').attr('action');

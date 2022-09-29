@@ -9,6 +9,7 @@ var config = {
     map: {
         '*':{
             product_range:'Crimson_ProductRange/js/product_range',
+            "validation": "mage/validation/validation"
         }
     },
     shim:{
