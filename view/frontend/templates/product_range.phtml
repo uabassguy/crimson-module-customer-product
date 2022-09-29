@@ -3,7 +3,7 @@
 ?>
 <span> Product Range Search </span>
 
-<form id="my-form">
+<form id="my-form" method="POST" action="<?= $this->getUrl('productrange/form/ajax'); ?>" role="form" name="RegForm" enctype="multipart/form-data" data-mage-init='{"validation":{"rules": {"field-2": {"required":true}}}}'>
     <fieldset class="fieldset">
         <div class="field low required">
             <label class="label" for="low"><span><?= $block->escapeHtml(__('Low')) ?></span></label>
@@ -29,38 +29,16 @@
     </fieldset>
     <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>"/>
     <div class="primary">
-        <button type="submit"
-                class="action submit primary"
-                data-action="submit-form"
-                title="<?= $block->escapeHtmlAttr(__('Submit')) ?>">
-            <span><?= $block->escapeHtml(__('Submit')) ?></span>
-        </button>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" title="Submit" id="range-submit-btn" class="action submit primary" data-mage-init='{"product_range":{}}'>
+                    <span>Submit</span>
+                </button>
+            </div>
+        </div>
     </div>
 </form>
 
-<script>
-    require(['jquery'],function($){
-
-        $(document).ready(function() {
-            $("#my-form").submit(function(){
-                jQuery.ajax({
-                    url: "/productrange/form/ajax",
-                    type: "GET",
-                    data: {
-                        low:low,
-                        high:high,
-                        sort:sort
-                    },
-                    success: function(response){
-                        console.log(response);
-                    }
-                });
-            });
-        });
-
-    });
-
-</script>
 
 <script type="text/javascript">
     require([
