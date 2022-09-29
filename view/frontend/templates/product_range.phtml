@@ -3,7 +3,7 @@
 ?>
 <span> Product Range Search </span>
 
-<form id="my-form" method="POST" action="<?= $this->getUrl('productrange/form/ajax'); ?>" role="form" name="RegForm" enctype="multipart/form-data" data-mage-init='{"validation":{"rules": {"field-2": {"required":true}}}}'>
+<form id="my-form" method="POST" action="<?= $this->getUrl('productrange/form/ajax'); ?>" role="form" name="RegForm" enctype="multipart/form-data">
     <fieldset class="fieldset">
         <div class="field low required">
             <label class="label" for="low"><span><?= $block->escapeHtml(__('Low')) ?></span></label>

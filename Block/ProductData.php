@@ -48,4 +48,10 @@ class ProductData extends AbstractBlock
         return $this->request->getParams();
     }
 
+    public function toHtml()
+    {
+        print_r($this->getData('template'));die();
+        $this->getCollection();
+    }
+
 }
