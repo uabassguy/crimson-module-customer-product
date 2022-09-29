@@ -18,8 +18,9 @@ define([
             data: formdata,
             showLoader: true,
             success: function(data){
+                $('#product-result').html(data.html);
                 //location.reload();
-                alert(data);
+                //alert(data);
             }
         });
         e.preventDefault();

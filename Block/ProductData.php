@@ -36,7 +36,8 @@ class ProductData extends Template
         $params = $this->getParams();
 
         return $this->collectionFactory->create()
-            ->addAttributeToSelect('*')
+            ->addAttributeToSelect('price')
+            ->addAttributeToSelect('price')
             ->addFieldToFilter( 'price' , ['from' => $params['low'], 'to' => $params['high']] )
             ->setOrder('price', $params['sort'] )
         ->setPageSize(10);
@@ -49,7 +50,32 @@ class ProductData extends Template
 
     public function toHtml()
     {
-        return $this->getCollection()->getItems();
+        if ($this->getCollection()->count() == 0) {
+            return "No items returned";
+        }
+        echo '<table>
+            <tr>
+                <td>Thumbnail</td>
+                <td>SKU</td>
+                <td>Name</td>
+                <td>QTY</td>
+                <td>Price</td>
+                <td>Link</td>
+            </tr>
+        ';
+        foreach ($this->getCollection()->getItems() as $item) {
+            ?>
+            <tr>
+                <td><img src="<?= $item->getThumbnail() ?>"/></td>
+                <td><?= $item->getSku() ?></td>
+                <td><?= $item->getName() ?></td>
+                <td><?= $item->getQty() ?></td>
+                <td><?= $item->getPrice() ?></td>
+                <td><a href="<?= $item->getUrl() ?>" target="_blank">Page</a></td>
+            </tr>
+            <?php
+        }
+        echo '</table>';
     }
 
 }
