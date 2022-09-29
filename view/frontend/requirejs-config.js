@@ -3,9 +3,6 @@ var config = {
         mixins: {
             'mage/validation': {
                 'Crimson_ProductRange/js/validation-mixin': true
-            },
-            'Magento_Ui/js/lib/validation/rules': {
-                'Crimson_ProductRange/js/product_range_5x': true
             }
         }
     },
