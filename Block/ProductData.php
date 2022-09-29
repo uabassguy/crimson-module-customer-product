@@ -38,7 +38,7 @@ class ProductData extends Template
         return $this->collectionFactory->create()
             ->addAttributeToSelect('*')
             ->addFieldToFilter( 'price' , ['from' => $params['low'], 'to' => $params['high']] )
-            //->setOrder('price', $params['sort'] )
+            ->setOrder('price', $params['sort'] )
         ->setPageSize(10);
     }
 
