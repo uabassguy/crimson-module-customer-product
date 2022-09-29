@@ -69,12 +69,12 @@ class ProductData extends Template
         ';
         foreach ($this->getCollection()->getItems() as $item) {
             $result .= "<tr>
-                <td><img src='{{$item->getThumbnail()}}'/></td>
-                <td>{{$item->getSku()}}</td>
-                <td>{{$item->getName()}}</td>
-                <td>{{$item->getQty()}}</td>
-                <td>{{$item->getPrice()}}</td>
-                <td><a href='{{$item->getUrl()}}' target='_blank'>Page</a></td>
+                <td><img src='{$item->getThumbnail()}'/></td>
+                <td>{$item->getSku()}</td>
+                <td>{$item->getName()}</td>
+                <td>{$item->getQty()}</td>
+                <td>{$item->getPrice()}</td>
+                <td><a href='{$item->getUrl()}' target='_blank'>Page</a></td>
             </tr>";
 
         }
