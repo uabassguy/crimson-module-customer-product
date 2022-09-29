@@ -36,12 +36,7 @@ class ProductData extends Template
         $params = $this->getParams();
 
         return $this->collectionFactory->create()
-            ->addAttributeToSelect('price')
-            ->addAttributeToSelect('sku')
-            ->addAttributeToSelect('thumbnail')
-            ->addAttributeToSelect('name')
-            ->addAttributeToSelect('qty')
-            ->addAttributeToSelect('url')
+            ->addAttributeToSelect('*')
             ->addFieldToFilter( 'price' , ['from' => $params['low'], 'to' => $params['high']] )
             ->setOrder('price', $params['sort'] )
         ->setPageSize(10);
@@ -70,7 +65,7 @@ class ProductData extends Template
         foreach ($this->getCollection()->getItems() as $item) {
             $result .= "<tr>
                 <td><img src='".$item->getThumbnail()."'/></td>
-                <td>$item->getSku()</td>
+                <td>{{$item->getSku()}}</td>
                 <td>$item->getName()</td>
                 <td>$item->getQty()</td>
                 <td>$item->getPrice()</td>
