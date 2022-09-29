@@ -5,10 +5,9 @@ namespace Crimson\ProductRange\Block;
 use Magento\Catalog\Ui\DataProvider\Product\ProductCollectionFactory;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Data\Collection;
-use Magento\Framework\View\Element\AbstractBlock;
 use Magento\Framework\View\Element\Template;
 
-class ProductData extends AbstractBlock
+class ProductData extends Template
 {
     private $collectionFactory;
 
