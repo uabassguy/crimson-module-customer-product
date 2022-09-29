@@ -47,7 +47,7 @@ class Ajax extends \Magento\Framework\App\Action\Action implements HttpPostActio
                 "html" => $resultPage->getLayout()->getBlock('product_table')->toHtml()
             ]);
         }
-
+        print_r($resultPage->getLayout()->getBlock('product_table')->toHtml());die();
         return $resultJson;
     }
 

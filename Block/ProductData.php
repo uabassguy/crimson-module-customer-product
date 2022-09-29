@@ -34,7 +34,7 @@ class ProductData extends Template
     public function getCollection(): Collection
     {
         $params = $this->getParams();
-        print_r($params);die();
+
         return $this->collectionFactory->create()
             ->addAttributeToSelect('*')
             ->addFieldToFilter( 'price' , ['from' => $params['low'], 'to' => $params['high']] )
