@@ -3,12 +3,12 @@
 namespace Crimson\ProductRange\Controller\Form;
 
 use Magento\Framework\App\Action\Context;
-use Magento\Framework\App\Action\HttpGetActionInterface as HttpGetActionInterface;
+use Magento\Framework\App\Action\HttpPostActionInterface as HttpPostActionInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Controller\ResultInterface;
 
-class Ajax extends \Magento\Framework\App\Action\Action implements HttpGetActionInterface
+class Ajax extends \Magento\Framework\App\Action\Action implements HttpPostActionInterface
 {
     /**
      * @var PageFactory
