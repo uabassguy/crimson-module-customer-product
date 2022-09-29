@@ -57,7 +57,7 @@ class ProductData extends Template
         if ($this->getCollection()->count() == 0) {
             return "No items returned";
         }
-        echo '<table>
+        $result = '<table>
             <tr>
                 <td>Thumbnail</td>
                 <td>SKU</td>
@@ -68,18 +68,18 @@ class ProductData extends Template
             </tr>
         ';
         foreach ($this->getCollection()->getItems() as $item) {
-            ?>
-            <tr>
-                <td><img src="<?= $item->getThumbnail() ?>"/></td>
-                <td><?= $item->getSku() ?></td>
-                <td><?= $item->getName() ?></td>
-                <td><?= $item->getQty() ?></td>
-                <td><?= $item->getPrice() ?></td>
-                <td><a href="<?= $item->getUrl() ?>" target="_blank">Page</a></td>
-            </tr>
-            <?php
+            $result .= "<tr>
+                <td><img src='".$item->getThumbnail()."'/></td>
+                <td>$item->getSku()</td>
+                <td>$item->getName()</td>
+                <td>$item->getQty()</td>
+                <td>$item->getPrice()</td>
+                <td><a href='".$item->getUrl()."' target='_blank'>Page</a></td>
+            </tr>";
+
         }
-        echo '</table>';
+        $result .= '</table>';
+        return $result;
     }
 
 }
