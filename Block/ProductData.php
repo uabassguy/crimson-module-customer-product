@@ -37,7 +37,11 @@ class ProductData extends Template
 
         return $this->collectionFactory->create()
             ->addAttributeToSelect('price')
-            ->addAttributeToSelect('price')
+            ->addAttributeToSelect('sku')
+            ->addAttributeToSelect('thumbnail')
+            ->addAttributeToSelect('name')
+            ->addAttributeToSelect('qty')
+            ->addAttributeToSelect('url')
             ->addFieldToFilter( 'price' , ['from' => $params['low'], 'to' => $params['high']] )
             ->setOrder('price', $params['sort'] )
         ->setPageSize(10);
