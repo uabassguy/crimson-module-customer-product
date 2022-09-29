@@ -50,8 +50,8 @@ class ProductData extends AbstractBlock
 
     public function toHtml()
     {
-        print_r($this->getData('template'));die();
-        $this->getCollection();
+        $this->setTemplate($this->getData('template'));
+        return parent::toHtml();
     }
 
 }
