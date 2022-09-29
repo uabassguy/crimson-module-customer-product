@@ -74,7 +74,7 @@ class ProductData extends Template
         ';
         foreach ($this->getCollection()->getItems() as $item) {
             $result .= "<tr>
-                <td><img src='{$this->productImageHelper->getThumbnailUrl($item)}'/></td>
+                <td><img width='100' src='{$this->productImageHelper->getThumbnailUrl($item)}'/></td>
                 <td>{$item->getSku()}</td>
                 <td>{$item->getName()}</td>
                 <td>{$item->getQty()}</td>
