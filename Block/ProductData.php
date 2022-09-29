@@ -6,12 +6,15 @@ use Magento\Catalog\Ui\DataProvider\Product\ProductCollectionFactory;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Data\Collection;
 use Magento\Framework\View\Element\Template;
+use Magento\Catalog\Helper\Product as ProductImageHelper;
 
 class ProductData extends Template
 {
     private $collectionFactory;
 
     private $request;
+
+    private $productImageHelper;
 
     /**
      * ProductData constructor.
@@ -24,10 +27,12 @@ class ProductData extends Template
         Template\Context $context,
         RequestInterface $request,
         ProductCollectionFactory $productCollectionFactory,
+        ProductImageHelper $productImageHelper,
         array $data = []
     ) {
         $this->request = $request;
         $this->collectionFactory = $productCollectionFactory;
+        $this->productImageHelper = $productImageHelper;
         parent::__construct($context, $data);
     }
 
@@ -69,12 +74,12 @@ class ProductData extends Template
         ';
         foreach ($this->getCollection()->getItems() as $item) {
             $result .= "<tr>
-                <td><img src='{$item->getThumbnail()}'/></td>
+                <td><img src='{$this->productImageHelper->getThumbnailUrl($item)}'/></td>
                 <td>{$item->getSku()}</td>
                 <td>{$item->getName()}</td>
                 <td>{$item->getQty()}</td>
                 <td>{$item->getPrice()}</td>
-                <td><a href='{$item->getUrl()}' target='_blank'>Page</a></td>
+                <td><a href='{$item->getUrlModel()->getUrl($item)}' target='_blank'>Page</a></td>
             </tr>";
 
         }
