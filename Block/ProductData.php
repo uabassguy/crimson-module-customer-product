@@ -46,7 +46,7 @@ class ProductData extends Template
             ->addAttributeToSelect('sku')
             ->addAttributeToSelect('thumbnail')
             ->addAttributeToSelect('name')
-            ->addAttributeToSelect('qty')
+            ->addAttributeToSelect('quantity')
             ->addAttributeToSelect('url')
             ->addFieldToFilter( 'price' , ['from' => $params['low'], 'to' => $params['high']] )
             ->setOrder('price', $params['sort'] )
