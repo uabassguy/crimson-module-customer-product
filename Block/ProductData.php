@@ -7,6 +7,7 @@ use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Data\Collection;
 use Magento\Framework\View\Element\Template;
 use Magento\Catalog\Helper\Product as ProductImageHelper;
+use Magento\InventoryApi\Api\GetSourceItemsBySkuInterface;
 
 class ProductData extends Template
 {
@@ -16,12 +17,15 @@ class ProductData extends Template
 
     private $productImageHelper;
 
+    private $getSourceItemsBySku;
+
     /**
      * ProductData constructor.
      * @param Template\Context $context
      * @param RequestInterface $request
      * @param ProductCollectionFactory $productCollectionFactory
      * @param ProductImageHelper $productImageHelper
+     * @param GetSourceItemsBySkuInterface $getSourceItemsBySku
      * @param array $data
      */
     public function __construct(
@@ -29,11 +33,13 @@ class ProductData extends Template
         RequestInterface $request,
         ProductCollectionFactory $productCollectionFactory,
         ProductImageHelper $productImageHelper,
+        GetSourceItemsBySkuInterface $getSourceItemsBySku,
         array $data = []
     ) {
         $this->request = $request;
         $this->collectionFactory = $productCollectionFactory;
         $this->productImageHelper = $productImageHelper;
+        $this->getSourceItemsBySku = $getSourceItemsBySku;
         parent::__construct($context, $data);
     }
 
@@ -74,12 +80,12 @@ class ProductData extends Template
             </tr>
         ';
         foreach ($this->getCollection()->getItems() as $item) {
-            $stockItem = $item->getExtensionAttributes()->getStockItem();
+            $sourceItem = $this->getSourceItemsBySku->execute($item->getSku());
             $result .= "<tr>
                 <td><img width='100' src='{$this->productImageHelper->getThumbnailUrl($item)}'/></td>
                 <td>{$item->getSku()}</td>
                 <td>{$item->getName()}</td>
-                <td>{$stockItem->getQty()}</td>
+                <td>{$sourceItem->getQuantity()}</td>
                 <td>{$item->getPrice()}</td>
                 <td><a href='{$item->getUrlModel()->getUrl($item)}' target='_blank'>Page</a></td>
             </tr>";
