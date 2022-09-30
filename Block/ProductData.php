@@ -21,6 +21,7 @@ class ProductData extends Template
      * @param Template\Context $context
      * @param RequestInterface $request
      * @param ProductCollectionFactory $productCollectionFactory
+     * @param ProductImageHelper $productImageHelper
      * @param array $data
      */
     public function __construct(
@@ -57,7 +58,7 @@ class ProductData extends Template
         return $this->request->getParams();
     }
 
-    public function toHtml()
+    public function toHtml(): string
     {
         if ($this->getCollection()->count() == 0) {
             return "No items returned";

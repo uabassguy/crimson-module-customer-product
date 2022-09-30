@@ -26,9 +26,6 @@ class Index extends \Magento\Framework\App\Action\Action implements HttpGetActio
     }
 
     public function execute() {
-        /** @var \Magento\Framework\View\Result\Page $resultPage */
-        $resultPage = $this->resultPageFactory->create();
-
-        return $resultPage;
+        return $this->resultPageFactory->create();
     }
 }
