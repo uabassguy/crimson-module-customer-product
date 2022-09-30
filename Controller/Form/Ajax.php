@@ -39,7 +39,8 @@ class Ajax extends \Magento\Framework\App\Action\Action implements HttpPostActio
         $resultJson = $this->resultFactory->create(ResultFactory::TYPE_JSON);
         if (!$valid) {
             $resultJson->setData([
-                "suceess" => false
+                "suceess" => false,
+                "html" => "No results returned"
             ]);
         } else {
             $resultJson->setData([

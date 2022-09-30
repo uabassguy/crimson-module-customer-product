@@ -19,8 +19,6 @@ define([
             showLoader: true,
             success: function(data){
                 $('#product-result').html(data.html);
-                //location.reload();
-                //alert(data);
             }
         });
         e.preventDefault();
