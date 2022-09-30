@@ -46,7 +46,7 @@ class ProductData extends Template
             ->addAttributeToSelect('sku')
             ->addAttributeToSelect('thumbnail')
             ->addAttributeToSelect('name')
-            ->addAttributeToSelect('quantity')
+            ->addAttributeToSelect('qty')
             ->addAttributeToSelect('url')
             ->addFieldToFilter( 'price' , ['from' => $params['low'], 'to' => $params['high']] )
             ->setOrder('price', $params['sort'] )
@@ -74,11 +74,12 @@ class ProductData extends Template
             </tr>
         ';
         foreach ($this->getCollection()->getItems() as $item) {
+            $stockItem = $item->getExtensionAttributes()->getStockItem();
             $result .= "<tr>
                 <td><img width='100' src='{$this->productImageHelper->getThumbnailUrl($item)}'/></td>
                 <td>{$item->getSku()}</td>
                 <td>{$item->getName()}</td>
-                <td>{$item->getQty()}</td>
+                <td>{$stockItem->getQty()}</td>
                 <td>{$item->getPrice()}</td>
                 <td><a href='{$item->getUrlModel()->getUrl($item)}' target='_blank'>Page</a></td>
             </tr>";
