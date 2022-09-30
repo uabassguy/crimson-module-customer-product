@@ -63,6 +63,9 @@ class Ajax extends \Magento\Framework\App\Action\Action implements HttpPostActio
         if ($params['sort'] != 'asc' && $params['sort'] != 'desc') {
             return false;
         }
+        if ($params['high'] < $params['low'] || $params['high'] > ($params['low'] * 5)) {
+            return false;
+        }
         return true;
     }
 }
