@@ -6,7 +6,7 @@ define(['jquery'], function($) {
             'high-multiple-5x',
             function(value, element) {
                 let lowVal = $('input.low').val();
-                return (value >= lowVal * 5) && (value > lowVal);
+                return (value <= lowVal * 5) && (value > lowVal);
             },
             $.mage.__('Value must be greater than Low and Less than (Low x 5)')
         )
