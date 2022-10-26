@@ -85,7 +85,7 @@ class ProductData extends Template
                 <td><img width='100' src='{$this->productImageHelper->getThumbnailUrl($item)}'/></td>
                 <td>{$item->getSku()}</td>
                 <td>{$item->getName()}</td>
-                <td>{$sourceItem->getQuantity()}</td>
+                <td>{is_object($sourceItem) ?? $sourceItem->getQuantity() : $item->getQty()}</td>
                 <td>{$item->getPrice()}</td>
                 <td><a href='{$item->getUrlModel()->getUrl($item)}' target='_blank'>Page</a></td>
             </tr>";
